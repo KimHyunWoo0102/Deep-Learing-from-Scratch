@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pylab as plt
 import activate_functions.sigmoid_function as sig
+from ch03_neural_network.softmax import softmax
 
 
 def init_network():
@@ -20,16 +21,6 @@ def init_network():
 
 def identity_function(x):
     return x
-
-
-def softmax(a):
-    # 숫자가 커지면 오버플로우가 발생하니 지수 크기 조절
-    c = np.max(a)
-    exp_a = np.exp(a - c)
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
 
 
 def forward(network, x):
